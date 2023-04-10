@@ -66,6 +66,7 @@ const Main = (props) => {
               name={card.name}
               link={card.link}
               likes={card.likes}
+              onCardClick={props.onCardClick}
             />
           );
         })}

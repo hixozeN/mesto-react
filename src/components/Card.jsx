@@ -1,6 +1,9 @@
 import React from "react";
 
 const Card = (props) => {
+  const handleClick = () => {
+    props.onCardClick(props.cardData)
+  };
 
   return (
     <div className="card">
@@ -15,7 +18,7 @@ const Card = (props) => {
           <p className="card__like-counter">{props.likes.length}</p>
         </div>
       </div>
-      <img className="card__image" src={props.link} alt={props.name} />
+      <img className="card__image" src={props.link} alt={props.name} onClick={handleClick} />
       <button
         className="card__delete-button"
         name="button_card_delete"
