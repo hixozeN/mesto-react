@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import api from "../utils/Api.js";
+import Card from "./Card.jsx";
 
 const Main = (props) => {
+  const [userName, setUserName] = useState("");
+  const [userDescription, setUserDescription] = useState("");
+  const [userAvatar, setUserAvatar] = useState("");
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    Promise.all([api.getUserInfo(), api.getInitialCards()])
+      .then(([userData, cardList]) => {
+        setUserName(userData.name);
+        setUserDescription(userData.about);
+        setUserAvatar(userData.avatar);
+        setCards(cardList);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <main className="page">
       <section className="head-profile">
@@ -8,7 +26,7 @@ const Main = (props) => {
           <div className="head-profile__avatar-section">
             <img
               className="head-profile__avatar"
-              src="#"
+              src={userAvatar}
               alt="Аватар пользователя"
             />
             <button
@@ -20,7 +38,7 @@ const Main = (props) => {
           </div>
           <div className="head-profile__userinfo">
             <div className="head-profile__username-and-edit">
-              <h1 className="head-profile__username">Жак-Ив Кусто</h1>
+              <h1 className="head-profile__username">{userName}</h1>
               <button
                 className="head-profile__edit-button"
                 type="button"
@@ -28,7 +46,7 @@ const Main = (props) => {
                 onClick={props.onEditProfile}
               ></button>
             </div>
-            <p className="head-profile__job">Исследователь океанов</p>
+            <p className="head-profile__job">{userDescription}</p>
           </div>
         </div>
         <button
@@ -39,10 +57,19 @@ const Main = (props) => {
         ></button>
       </section>
 
-      <section
-        className="photo-feed"
-        aria-label="Лента с карточками фото-мест"
-      ></section>
+      <section className="photo-feed" aria-label="Лента с карточками фото-мест">
+        {cards.map((card) => {
+          return (
+            <Card
+              key={card._id}
+              cardData={card}
+              name={card.name}
+              link={card.link}
+              likes={card.likes}
+            />
+          );
+        })}
+      </section>
     </main>
   );
 };
