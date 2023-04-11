@@ -14,17 +14,11 @@ function App() {
   const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState({});
 
-  const handleEditProfileClick = () => {
-    setIsEditProfilePopupOpen(true);
-  };
+  const handleEditProfileClick = () => setIsEditProfilePopupOpen(true);
 
-  const handleAddPlaceClick = () => {
-    setIsAddPlacePopupOpen(true);
-  };
+  const handleAddPlaceClick = () => setIsAddPlacePopupOpen(true);
 
-  const handleEditAvatarClick = () => {
-    setIsEditAvatarPopupOpen(true);
-  };
+  const handleEditAvatarClick = () => setIsEditAvatarPopupOpen(true);
 
   const handleCardClick = (cardData) => {
     setIsImagePopupOpen(true);

@@ -9,30 +9,28 @@ const PopupEditProfile = (props) => {
       isOpen={props.isOpen}
       onClose={props.onClose}
     >
-      <fieldset className="popup__input-container">
-        <input
-          className="popup__input popup__input_field_name"
-          type="text"
-          placeholder="Как Вас зовут?"
-          name="username"
-          id="username"
-          minLength="2"
-          maxLength="40"
-          required
-        />
-        <span className="popup__input-error username-error"></span>
-        <input
-          className="popup__input popup__input_field_job"
-          type="text"
-          placeholder="Кем Вы работаете?"
-          name="userjob"
-          id="userjob"
-          minLength="2"
-          maxLength="200"
-          required
-        />
-        <span className="popup__input-error userjob-error"></span>
-      </fieldset>
+      <input
+        className="popup__input popup__input_field_name"
+        type="text"
+        placeholder="Как Вас зовут?"
+        name="username"
+        id="username"
+        minLength="2"
+        maxLength="40"
+        required
+      />
+      <span className="popup__input-error username-error"></span>
+      <input
+        className="popup__input popup__input_field_job"
+        type="text"
+        placeholder="Кем Вы работаете?"
+        name="userjob"
+        id="userjob"
+        minLength="2"
+        maxLength="200"
+        required
+      />
+      <span className="popup__input-error userjob-error"></span>
       <button
         className="popup__submit-button"
         name="button_editForm_save"

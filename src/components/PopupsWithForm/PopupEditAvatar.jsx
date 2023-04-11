@@ -9,17 +9,15 @@ const PopupEditAvatar = (props) => {
       isOpen={props.isOpen}
       onClose={props.onClose}
     >
-      <fieldset className="popup__input-container">
-        <input
-          className="popup__input popup__input_field_ava-url"
-          type="url"
-          placeholder="Ссылка на аватар"
-          name="avaurl"
-          id="avaurl"
-          required
-        />
-        <span className="popup__input-error avaurl-error"></span>
-      </fieldset>
+      <input
+        className="popup__input popup__input_field_ava-url"
+        type="url"
+        placeholder="Ссылка на аватар"
+        name="avaurl"
+        id="avaurl"
+        required
+      />
+      <span className="popup__input-error avaurl-error"></span>
       <button
         className="popup__submit-button"
         name="buttonAvatarSubmit"
