@@ -23,8 +23,6 @@ const PopupWithForm = (props) => {
           {props.children}
           <button
             className="popup__submit-button"
-            name={`button_submit_${Date.now()}`}
-            id={Date.now()}
             type="submit"
           >
             {props.btnName}
