@@ -6,6 +6,7 @@ const PopupAddCard = (props) => {
     <PopupWithForm
       name="card-add"
       title="Новое место"
+      btnName={props.btnName}
       isOpen={props.isOpen}
       onClose={props.onClose}
     >
@@ -29,14 +30,6 @@ const PopupAddCard = (props) => {
         required
       />
       <span className="popup__input-error placeurl-error"></span>
-      <button
-        className="popup__submit-button"
-        name="button_placeForm_add"
-        id="button_placeForm_add"
-        type="submit"
-      >
-        Создать
-      </button>
     </PopupWithForm>
   );
 };

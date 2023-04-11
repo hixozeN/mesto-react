@@ -22,7 +22,7 @@ function App() {
 
   const handleCardClick = (cardData) => {
     setIsImagePopupOpen(true);
-    setSelectedCard(cardData)
+    setSelectedCard(cardData);
   };
 
   const closeAllPopups = () => {
@@ -45,13 +45,23 @@ function App() {
       <PopupEditProfile
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopups}
+        btnName="Сохранить"
       />
       <PopupEditAvatar
         isOpen={isEditAvatarPopupOpen}
         onClose={closeAllPopups}
+        btnName="Сохранить"
       />
-      <PopupAddCard isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
-      <ImagePopup isOpen={isImagePopupOpen} onClose={closeAllPopups} card={selectedCard} />
+      <PopupAddCard
+        isOpen={isAddPlacePopupOpen}
+        onClose={closeAllPopups}
+        btnName="Создать"
+      />
+      <ImagePopup
+        isOpen={isImagePopupOpen}
+        onClose={closeAllPopups}
+        card={selectedCard}
+      />
     </>
   );
 }

@@ -2,7 +2,9 @@ import React from "react";
 
 const PopupWithForm = (props) => {
   return (
-    <div className={`popup popup_${props.name} ${props.isOpen && 'popup_opened'}`}>
+    <div
+      className={`popup popup_${props.name} ${props.isOpen && "popup_opened"}`}
+    >
       <div className="popup__content">
         <button
           type="button"
@@ -19,6 +21,14 @@ const PopupWithForm = (props) => {
           noValidate
         >
           {props.children}
+          <button
+            className="popup__submit-button"
+            name={`button_submit_${Date.now()}`}
+            id={Date.now()}
+            type="submit"
+          >
+            {props.btnName}
+          </button>
         </form>
       </div>
     </div>

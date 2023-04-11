@@ -6,6 +6,7 @@ const PopupEditProfile = (props) => {
     <PopupWithForm
       name="profile-edit"
       title="Редактировать профиль"
+      btnName={props.btnName}
       isOpen={props.isOpen}
       onClose={props.onClose}
     >
@@ -31,14 +32,6 @@ const PopupEditProfile = (props) => {
         required
       />
       <span className="popup__input-error userjob-error"></span>
-      <button
-        className="popup__submit-button"
-        name="button_editForm_save"
-        id="button_editForm_save"
-        type="submit"
-      >
-        Сохранить
-      </button>
     </PopupWithForm>
   );
 };
