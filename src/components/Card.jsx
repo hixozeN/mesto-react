@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import noPhoto from "../images/no-photo.jpg";
 
 const Card = (props) => {
+  const [isErrorLoading, setErrorLoading] = useState(false); // стейт под ошибку загрузки изображения карточки
+
   const handleClick = () => {
-    props.onCardClick(props.cardData)
+    props.onCardClick(props.cardData);
   };
+
+  const handleOnError = () => setErrorLoading(true); // хэндлер отлова ошибки загрузки изображения
 
   return (
     <div className="card">
@@ -18,7 +23,13 @@ const Card = (props) => {
           <p className="card__like-counter">{props.likes.length}</p>
         </div>
       </div>
-      <img className="card__image" src={props.link} alt={props.name} onClick={handleClick} />
+      <img
+        className="card__image"
+        onError={handleOnError} // ошибка загрузки - меняем стейт
+        src={isErrorLoading ? noPhoto : props.link} // есть ошибка загрузки - вешаем заглушку, нет - показываем изображение
+        alt={props.name}
+        onClick={handleClick}
+      />
       <button
         className="card__delete-button"
         name="button_card_delete"

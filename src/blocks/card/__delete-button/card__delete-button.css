@@ -12,6 +12,7 @@
   cursor: pointer;
   transition: opacity 0.3s linear;
   padding: 0;
+  filter: drop-shadow(1px 1px 5px #000);
 }
 
 @media (pointer: fine) {
