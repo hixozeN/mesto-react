@@ -1,10 +1,17 @@
 import React from "react";
+import HandlerCloseByEsc from "../CloseByEsc/CloseByEsc";
 
 const PopupWithForm = (props) => {
   return (
     <div
       className={`popup popup_${props.name} ${props.isOpen && "popup_opened"}`}
+      onMouseDown={(evt) => {
+        if (evt.target.classList.contains('popup_opened')) {
+          props.onClose();
+        }
+      }}
     >
+      {props.isOpen && <HandlerCloseByEsc onClose={props.onClose} />}
       <div className="popup__content">
         <button
           type="button"
