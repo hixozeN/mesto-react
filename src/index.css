@@ -7,6 +7,9 @@
 /* Root styles */
 @import url(./blocks/root/root.css);
 @import url(./blocks/page/page.css);
+@import url(./blocks/page/__loading/page__loading.css);
+@import url(./blocks/page/__loading-circle/page__loading-circle.css);
+@import url(./blocks/page/__loading-text/page__loading-text.css);
 
 /* Header styles */
 @import url(./blocks/header/header.css);
