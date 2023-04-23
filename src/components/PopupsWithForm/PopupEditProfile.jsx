@@ -10,7 +10,7 @@ const PopupEditProfile = (props) => {
   useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
-  }, [currentUser]);
+  }, [currentUser, props.isOpen]);
 
   const handleSumbit = (evt) => {
     evt.preventDefault();
