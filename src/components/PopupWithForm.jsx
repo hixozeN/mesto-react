@@ -1,12 +1,13 @@
 import React from "react";
-import HandlerCloseByEsc from "../CloseByEsc/CloseByEsc";
+import HandlerCloseByEsc from "../hooks/CloseByEsc/CloseByEsc";
 
 const PopupWithForm = (props) => {
+
   return (
     <div
       className={`popup popup_${props.name} ${props.isOpen && "popup_opened"}`}
       onMouseDown={(evt) => {
-        if (evt.target.classList.contains('popup_opened')) {
+        if (evt.target.classList.contains("popup_opened")) {
           props.onClose();
         }
       }}
@@ -25,13 +26,10 @@ const PopupWithForm = (props) => {
         <form
           className={`popup__form popup__form_type_${props.name}`}
           name={props.name}
-          noValidate
+          onSubmit={props.onSubmit}
         >
           {props.children}
-          <button
-            className="popup__submit-button"
-            type="submit"
-          >
+          <button className="popup__submit-button" type="submit">
             {props.btnName}
           </button>
         </form>

@@ -9,7 +9,6 @@
 @import url(./blocks/page/page.css);
 @import url(./blocks/page/__loading/page__loading.css);
 @import url(./blocks/page/__loading-circle/page__loading-circle.css);
-@import url(./blocks/page/__loading-text/page__loading-text.css);
 
 /* Header styles */
 @import url(./blocks/header/header.css);
@@ -38,6 +37,7 @@
 @import url(./blocks/card/__like-button/card__like-button.css);
 @import url(./blocks/card/__like-button/_active/card__like-button_active.css);
 @import url(./blocks/card/__delete-button/card__delete-button.css);
+@import url(./blocks/card/__loading-status/card__loading-status.css);
 @import url(./blocks/card/__like-container/card__like-container.css);
 @import url(./blocks/card/__like-counter/card__like-counter.css);
 

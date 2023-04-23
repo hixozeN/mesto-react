@@ -1,5 +1,5 @@
 import React from "react";
-import HandlerCloseByEsc from "../CloseByEsc/CloseByEsc";
+import HandlerCloseByEsc from "../hooks/CloseByEsc/CloseByEsc";
 
 const ImagePopup = (props) => {
   return (
