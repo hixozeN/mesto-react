@@ -1,10 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import Card from "./Card.jsx";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 
 const Main = (props) => {
   const userData = useContext(CurrentUserContext);
-
+  
+  const cardList = useMemo(() => {
+    return props.cards.map((card) => {
+      return (
+        <Card
+          key={card._id}
+          cardData={card}
+          name={card.name}
+          link={card.link}
+          likes={card.likes}
+          onCardClick={props.onCardClick}
+          onCardLike={props.onCardLike}
+          onCardDelete={props.onCardDelete}
+        />
+      );
+    })
+  }, [props.cards])
+  
   return (
     <main className="page">
       <section className="head-profile">
@@ -44,20 +61,7 @@ const Main = (props) => {
       </section>
 
       <section className="photo-feed" aria-label="Лента с карточками фото-мест">
-        {props.cards.map((card) => {
-          return (
-            <Card
-              key={card._id}
-              cardData={card}
-              name={card.name}
-              link={card.link}
-              likes={card.likes}
-              onCardClick={props.onCardClick}
-              onCardLike={props.onCardLike}
-              onCardDelete={props.onCardDelete}
-            />
-          );
-        })}
+        {cardList}
       </section>
     </main>
   );

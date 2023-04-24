@@ -27,7 +27,7 @@ const Card = (props) => {
   };
 
   const handleOnError = () => setErrorLoading(true); // хэндлер отлова ошибки загрузки изображения
-
+  console.log('render cards')
   return (
     <div className="card">
       <div className="card__heading">
